@@ -7,12 +7,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
-class Car
+class Car extends Vehicule
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $clim = null;
@@ -23,10 +19,6 @@ class Car
     #[ORM\Column(type: Types::SMALLINT, nullable: true)]
     private ?int $Nbportes = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function isClim(): ?bool
     {
